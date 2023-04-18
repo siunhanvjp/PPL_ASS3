@@ -1,0 +1,10 @@
+
+uu tien fix trong global, ko co thi vo pro kiem 
+
+- funccall -> di tim function day trong global and fix the auto to the corresponding type
+
+- param cua function -> 
+
++ param cua inherit -> neu inherit thi vut no thanh Id() -> sua type cua param tuong ung
++ param cua function 
+
