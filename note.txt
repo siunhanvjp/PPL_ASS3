@@ -1,0 +1,27 @@
+
+var = ["name", None]
+
+[ [local], [nonlocal], [global] ]
+
+== != ko di chung float
+
+function co the khai bao su -> di 1 lan lay tat ca cac ham va kieu no tra ve truoc ?
+
+Ko yeu cau bat loi TypeCannotBeInfered
+
+function ko co return ko bat loi, return ra sai kieu ko bat loi :D??
+
+ArrayLit phai du element => throw exception TypeMismatchInVarDecl
+
+ArrayType luu sao ? -> luu sao de check duoc dimension -> sai throw mismatch in stmt, check duoc type
+
+Function Decl luu sao ?
+
+Travese 1 vong program truoc de lay prototype cua ham gom ten + danh sach arg + inherit neu co + ko quang ra loi gì het
+
+co auto aray lit duoc ko ?
+
+ArrayCell là name-> length trong index operator -> các expression trong index operator
+
+para có auto
+
