@@ -1,3 +1,1 @@
-Program([
-	VarDecl(x, IntegerType)
-])
+Type mismatch in statement: AssignStmt(Id(x), StringLit(abc))

@@ -39,13 +39,4 @@ class ASTGenSuite(unittest.TestCase):
 ])"""
         self.assertTrue(TestAST.test(input, expect, 303))
 
-    def test_more_complex_program(self):
-        """More complex program"""
-        input = """main: function void () {
-            printInteger(4);
-        }"""
-        expect = """Program([
-	FuncDecl(main, VoidType, [], None, BlockStmt([]))
-])"""
-        self.assertTrue(TestAST.test(input, expect, 304))
 

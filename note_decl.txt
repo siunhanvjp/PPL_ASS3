@@ -1,10 +1,14 @@
+name là nhu nhau trong scope, ko phan biett vả hay decl,
+nhung cho di tim name thi search theo scope
 
-uu tien fix trong global, ko co thi vo pro kiem 
 
-- funccall -> di tim function day trong global and fix the auto to the corresponding type
+a: int = 5;
 
-- param cua function -> 
+foo: function void () inherit a{}
 
-+ param cua inherit -> neu inherit thi vut no thanh Id() -> sua type cua param tuong ung
-+ param cua function 
 
+check tên function có redec chưa -> check params có redec không -> check inherit function có tồn tại không -> check params của inherit func có redec ko -> check params với inherit params xem có redec ko (throw invalid neu co) -> check xem implicit hay explicit gọi super/prevent -> neu explicit, check xem stmt đầu tiên phải super/prevent ko ( ko thi throw raise TypeMismatchInExpression("")) 
+
+-> neu nhu call super, so sánh args của super với params của inherit function -> nếu len != nhau thì raise lỗi như trong 4rum -> giống nhau thì check type từng thằng từ trái qua phải, nếu mismatch thì raise TypeMismatchInExpression(arg tương ứng)
+
+-> neu nhu call prevent, neu args > 0 -> raise TypeMismatchInExpression(arg dau tien)

@@ -25,3 +25,12 @@ ArrayCell là name-> length trong index operator -> các expression trong index 
 
 para có auto
 
+
+main: function void (){
+
+	a: int
+	if(a<10) a:float
+
+}
+
+a:int = c
