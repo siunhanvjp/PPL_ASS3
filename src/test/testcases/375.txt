@@ -1,0 +1,9 @@
+
+                    foo: function integer(){
+                        return 3;
+                        if (true){
+                            return "abc";
+                        }
+                    }
+                
+                    

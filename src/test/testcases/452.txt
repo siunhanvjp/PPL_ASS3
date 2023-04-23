@@ -1,0 +1,25 @@
+
+        main: function void()
+        {
+            if(2 > 0)
+            {
+                while(true)
+                {
+                    continue;
+                }
+            }
+            else
+            {
+                a: integer = 0;
+                {
+                    {
+                        for (a = 3, a < 10, a + 1)
+                        {
+                            printInteger(a);
+                        }
+                    }
+                }
+                continue;           // Error
+            }
+        }
+        

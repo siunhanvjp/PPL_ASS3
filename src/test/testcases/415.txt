@@ -1,0 +1,10 @@
+
+        main: function void() {
+            x: float = 3.3;
+            if (false) {
+                if (x) {
+                    printString("Parser m sai roi hehe");
+                }
+            }
+        }
+        

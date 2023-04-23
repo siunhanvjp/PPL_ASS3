@@ -1,0 +1,9 @@
+
+main: function void()
+{
+
+        a,b:integer;
+        b = 1;
+        a:string;  // error
+        b = 0;
+}

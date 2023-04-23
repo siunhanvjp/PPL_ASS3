@@ -1,0 +1,7 @@
+
+                        a: array [2,2] of float = {{5,6},{1,2.0}};
+                        
+                        c: float = a[foo()];
+                        
+                        foo: function integer(){}
+                    

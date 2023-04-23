@@ -1,0 +1,19 @@
+
+        foo: function void()
+        {
+            a:integer;
+            a = 1 - 1e-1;
+            while (true){
+                printString("hello world");
+            }    
+            break;
+        }
+                
+        main: function void()
+        {
+            foo();
+            if (0.6 > 5/7 ){
+                break;
+            }
+        }
+        

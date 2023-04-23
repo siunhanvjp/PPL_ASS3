@@ -1,0 +1,18 @@
+
+        main: function void(){
+            arrInt: array[3] of integer;
+            while(true){
+                count = arrInt[0] / 3;
+                printInteger(count);
+            }
+        }
+
+        doNothing: function void(){
+            printString("Do nothing bleble!");
+        } 
+
+        main: function float(a: integer, b: integer)      // error
+        {
+            return 1.1;
+        }
+        

@@ -1,0 +1,12 @@
+
+            
+                    main: function void(){
+                        a:integer;
+                            for(a = 1, a < 5, 3+5){
+                                break;
+                                a:boolean;
+                                b:boolean = a == 4;
+                            }
+                        }
+                
+                    

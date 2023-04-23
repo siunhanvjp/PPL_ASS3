@@ -1,0 +1,11 @@
+
+        proc: function void(a: float, b: float)
+        {
+            printFloat(a + b);
+        }
+
+        main: function void() {
+            proc(1.2, 3.0);
+            proc(1.1, "hello man");
+        } 
+        

@@ -1,0 +1,11 @@
+
+        main: function void() {
+            x: float;
+            y: integer;
+            for (y = 0, y < 100, y + 1){
+                for (x = 1, x < 10, x + 1){
+                    printString("Chay duoc dong nay thi loi roi");
+                }
+            }
+        }
+        

@@ -1,0 +1,1 @@
+Type mismatch in Variable Declaration: VarDecl(g, StringType, BinExpr(==, FuncCall(foo, [Id(c), Id(e), Id(z)]), Id(f)))

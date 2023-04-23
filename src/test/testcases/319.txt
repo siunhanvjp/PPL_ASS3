@@ -1,0 +1,10 @@
+
+                    bar: function void(a: integer) inherit foo{
+                        return ;
+                    }
+                    
+                    foo: function integer ( inherit a: float, a: float){
+                        
+                    }
+                
+                    

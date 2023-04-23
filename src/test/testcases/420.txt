@@ -1,0 +1,11 @@
+
+        main: function void() {
+            while (true) {
+                printString("hehe");
+                break;
+            }
+            while (1) {
+                printString("Khong biet chay duoc khong");
+            }
+        }
+        

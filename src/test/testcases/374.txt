@@ -1,0 +1,7 @@
+
+                    foo: function integer(){
+                        return 3;
+                        return "abc";
+                    }
+                
+                    

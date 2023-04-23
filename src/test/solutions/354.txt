@@ -1,0 +1,1 @@
+Type mismatch in Variable Declaration: VarDecl(c, IntegerType, UnExpr(!, BinExpr(==, IntegerLit(3), BooleanLit(True))))

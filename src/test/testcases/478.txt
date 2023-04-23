@@ -1,0 +1,7 @@
+
+            foo: function auto(b: float, c: auto) {
+                do {
+                    x: integer = "abc";
+                } while (x + 1);
+            }
+        

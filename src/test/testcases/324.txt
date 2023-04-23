@@ -1,0 +1,10 @@
+
+                    foo: function void(a: integer, b: float){}
+                    
+                    bar: function void(a: integer, b: integer) inherit foo {
+                        super(a,b,c);
+                        foo(a,b);
+                        a: integer = b;
+                    }
+                
+                    

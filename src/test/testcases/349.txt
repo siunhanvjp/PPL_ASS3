@@ -1,0 +1,13 @@
+
+                        foo: function auto(a: auto, b:auto){
+                            
+                            c: integer;
+                            d: float = c + a;
+                            e: string = b :: "abc";
+                            
+                            f: auto = true;
+                            g:boolean = foo(c,e) || f;
+                            z: boolean = foo(c,e);
+                        } 
+                
+                    

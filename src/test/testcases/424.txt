@@ -1,0 +1,10 @@
+
+        main: function void() {
+            s: string;
+            a: integer;
+
+            a = 1;
+            s = "random string";
+
+        }
+        

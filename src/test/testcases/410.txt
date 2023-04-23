@@ -1,0 +1,7 @@
+
+main: function void(){
+    printInteger(1);
+    a =  1998;
+    b = 1998;  // error
+}
+

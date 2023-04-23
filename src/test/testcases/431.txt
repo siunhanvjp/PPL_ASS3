@@ -1,0 +1,9 @@
+
+        main: function void()
+        {
+            a: integer = 0;
+            arr: array[4] of integer;
+            arr[0] = a;
+            a[0] = 1;
+        } 
+        

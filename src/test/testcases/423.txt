@@ -1,0 +1,16 @@
+
+        main: function void() {
+            ret: float;
+            b : boolean;
+            ret = foo();
+            b = foo1();
+        }
+
+        foo: function float(){
+            return 3 / 5;
+        }
+
+        foo1: function boolean(x: integer){
+            return x;
+        }
+        

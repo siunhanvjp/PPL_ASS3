@@ -1,0 +1,1 @@
+Type mismatch in statement: ForStmt(AssignStmt(Id(a), FloatLit(1.0)), BooleanLit(True), IntegerLit(1), BlockStmt([]))

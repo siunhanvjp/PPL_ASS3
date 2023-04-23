@@ -1,0 +1,8 @@
+
+                    a : auto = 10;
+                    b : auto = " h e l l o ";
+                    c : auto = a < 100;
+                    main:function void(){
+                        c = 1<2;
+                    }
+                    

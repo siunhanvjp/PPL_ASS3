@@ -1,0 +1,15 @@
+
+            
+                    foo: function auto(a: auto, b:auto, z:auto){
+                            
+                            c: integer = -3;
+                            d: boolean = c > a;
+                            e: string = b :: "abc";
+                            
+                            f: auto = 2;
+                            g:string = foo(c,e,z) == f;
+                            y: array [2,3,4,5] of integer;
+                            
+                        } 
+                
+                    

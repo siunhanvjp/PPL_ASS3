@@ -1,0 +1,11 @@
+
+        foo: function void(s: string){
+            printString(s);
+        }
+
+        main: function void()
+        {
+            foo("ss");
+            foo("s" * 2);
+        }
+        

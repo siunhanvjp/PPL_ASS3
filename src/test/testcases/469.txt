@@ -1,0 +1,10 @@
+
+            main: function void() {
+                a: integer;
+                a = foo(1,2,3);
+                x: string = true;
+            }
+            foo: function auto(x: float, y: float, z: float) {
+                return x + y + z;
+            }
+        

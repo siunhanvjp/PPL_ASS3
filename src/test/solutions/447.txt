@@ -1,0 +1,1 @@
+Type mismatch in expression: BinExpr(==, FuncCall(readInteger, []), FloatLit(1.988))

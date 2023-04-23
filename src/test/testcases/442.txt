@@ -1,0 +1,10 @@
+
+        foo: function boolean(a:integer, b:float, c:string)
+        {
+            return (a*b - a/b) <= ((b / a+1) * 3);
+        }
+        main: function void(){
+            a = foo(1,2,"hello");
+            a = foo(1,2,3);
+        }
+        

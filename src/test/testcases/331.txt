@@ -1,0 +1,11 @@
+
+                
+                    
+                    
+                    bar: function void(c: integer, b: integer) inherit foo{
+                        
+                    }
+
+                    foo: function auto(inherit a: auto, a: float){}
+                
+                    

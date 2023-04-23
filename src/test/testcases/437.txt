@@ -1,0 +1,9 @@
+
+        main: function void()
+        {
+            s: string;
+            a: integer;
+            printString(s);
+            printString(a);
+        }
+        

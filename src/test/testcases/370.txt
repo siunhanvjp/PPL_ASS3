@@ -1,0 +1,11 @@
+
+                
+                    main: function void(){
+                            a:integer;
+                            c:string;
+                            while(c) {
+                                break;
+                            }
+                        }
+                
+                    

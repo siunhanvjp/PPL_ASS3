@@ -1,0 +1,13 @@
+
+                foo: function auto(a: auto, b:auto, z:auto){
+                            
+                            c: integer;
+                            d: float = c + a;
+                            e: string = b :: "abc";
+                            
+                            f: auto = 2;
+                            g:string = foo(c,e,z) == f;
+                            y: array [1,2] of integer;
+                            
+                        } 
+                    

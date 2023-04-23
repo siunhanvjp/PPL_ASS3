@@ -1,0 +1,8 @@
+
+        main: function void()
+        {
+            a: array[4] of float;
+            a[0] = 1.1;
+            a[1/2] = 1.2;
+        }
+        

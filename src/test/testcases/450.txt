@@ -1,0 +1,22 @@
+
+        foo: function void()
+        {
+            a: integer = 3;
+            while(true)
+            {
+                if (a > 3){
+                    continue;
+                }
+                else{
+                    break;
+                }
+            }
+        }
+
+        main: function void()
+        {
+            a,b: integer  = 3, 4;
+            foo();
+            continue;               // Error
+        }
+        

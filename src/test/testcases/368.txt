@@ -1,0 +1,13 @@
+
+            
+                        main: function void(){
+                            a:integer;
+                            c:string;
+                            if(1+1){
+                                a: float = 10;
+                            } else {
+                                break;
+                            }
+                        }
+                
+                    

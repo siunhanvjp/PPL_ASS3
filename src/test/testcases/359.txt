@@ -1,0 +1,8 @@
+
+                    main: function void(){
+                        a:float;
+                            for(a = 12, true, 1){
+                                
+                            }
+                        }
+                    

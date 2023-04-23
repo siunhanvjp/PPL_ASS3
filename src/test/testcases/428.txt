@@ -1,0 +1,16 @@
+
+        foo: function integer(a: integer)
+        {
+            return a + 3;
+        }
+
+        proc: function void()
+        {
+            a: integer;
+        }
+        
+        main: function void(){
+            proc();
+            foo1();
+        }
+        

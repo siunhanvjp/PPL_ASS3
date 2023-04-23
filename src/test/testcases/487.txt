@@ -1,0 +1,4 @@
+occho: function void (a: auto) {}
+            main: function void() {
+                occho(1,2);
+            }

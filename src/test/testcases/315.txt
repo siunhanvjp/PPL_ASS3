@@ -1,0 +1,12 @@
+
+            
+                    foo: function integer ( inherit a: float){
+                        
+                    }
+                    
+                    bar: function void(a: integer) inherit foo{
+                        super(12);
+                        return ;
+                    }
+                
+                    

@@ -1,0 +1,8 @@
+
+main: function integer(){
+    a: integer = 3;
+    b: integer = a + 3;
+    return a+b;
+}
+foo: string = "hello world";
+main: float = 3.5;

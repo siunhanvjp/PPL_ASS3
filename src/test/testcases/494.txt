@@ -1,0 +1,4 @@
+a: float = foo(1, 2) + 1.5;
+            main: function auto(a: integer, b: integer) {
+                return a + b; 
+            }

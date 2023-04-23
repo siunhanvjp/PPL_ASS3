@@ -1,0 +1,22 @@
+
+        main: function void()
+        {
+            if(true)
+            {
+                while(readInteger() == 1.988){
+                    printString("hello man");
+                    break;
+                }
+            }
+            else
+            {
+                a: integer;
+                for(a = 0, a < 10, a + 1)
+                {
+                    a = readInteger();
+                    a = a + 2;
+                }
+                break;
+            }
+        }
+        

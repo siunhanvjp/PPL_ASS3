@@ -1,0 +1,55 @@
+
+        main2: function integer()
+        {
+            while(true)
+            {
+                if( a == 6.9)
+                {
+                    a, b: float;
+                    C: array[100] of integer;
+                    d: integer;
+                    {
+                        a = b / 3;
+                        b = -b;
+                        for(i = C[d], i > 0, i - 1)
+                        {
+                            break;
+                        }
+                    }
+                }
+                continue;
+            }
+            return 1;
+        }
+
+        main1: function float()
+        {
+            while(true)
+            {
+                if( a == 6.9)
+                {
+                    a, b: float;
+                    C: array[100] of integer;
+                    d: integer;
+                    {
+                        a = b / 3;
+                        b = -b;
+                        for(i = C[d], i > 0, i - 1)
+                        {
+                            break;
+                        }
+                    }
+                }
+                break;
+            }
+            return 1123_123.1;
+            
+        }
+
+        main: function void()
+        {
+            a: integer = main2();
+            b : float = main1();
+            continue;
+        }
+        

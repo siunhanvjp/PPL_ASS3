@@ -1,0 +1,17 @@
+
+        a: boolean = true;
+
+        main: function boolean(a: integer)
+        {
+            return main3(a);
+        }
+
+        main3: function boolean(a: integer)
+        {
+            if ( a > 3)
+            {
+                return true;
+            }
+            return false;
+        }
+        

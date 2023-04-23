@@ -1,0 +1,16 @@
+
+                        main: function void(){
+                            a:integer;
+                            c:string;
+                            if(true){
+                                a: float = 10;
+                                return;
+                            } else {
+                                c: integer = 12;
+                                if(!(c>10)){
+                                    return true;
+                                }
+                            }
+                        }
+                
+                    

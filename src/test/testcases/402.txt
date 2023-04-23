@@ -1,0 +1,6 @@
+
+main: function void(){
+    // do something
+    a, b: integer = 3,2;
+}
+main: auto = 3;

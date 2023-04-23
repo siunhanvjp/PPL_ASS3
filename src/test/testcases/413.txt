@@ -1,0 +1,14 @@
+
+boolFuncc: function boolean(x: integer){
+    if ( x > 3){return true;}
+    else {return false;}
+};
+
+main: function void(){
+    if boolFunc(){
+        printString("Hello world")
+    }
+    else {
+        printString("Oivkl")
+    }
+}

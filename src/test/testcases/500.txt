@@ -1,0 +1,32 @@
+
+
+           _var: integer;
+
+            inc: function void(out x: integer)
+            // Increase input by 1
+            {
+                x = x + 1;
+            }
+
+            main: function void()
+            {
+                a, b: integer = 1, 2;
+                inc(a);
+                if (a == b) inc(b);
+                else inc(a);
+
+                for (_var = 0, _var < 5, _var + 1)
+                {
+                    inc(a);
+                    a = a - b * 2;
+                }
+
+                /* My useless block */
+                {
+                    {
+                        {
+                            _var = a - 1;
+                        }
+                    }
+                }
+            }

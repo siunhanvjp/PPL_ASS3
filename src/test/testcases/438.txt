@@ -1,0 +1,11 @@
+
+        main: function void()
+        {
+            b: boolean;
+            a: integer;
+
+            a = -a;
+            b = b;
+            b = -b;
+        }
+        

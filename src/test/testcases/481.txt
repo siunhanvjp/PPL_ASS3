@@ -1,0 +1,2 @@
+goo: function integer() {}
+            a: auto = {goo, 1, 3};

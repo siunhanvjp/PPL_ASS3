@@ -1,0 +1,10 @@
+
+            
+                        foo: function auto(a: auto, b:auto){
+                            
+                            c: integer;
+                            d: integer = c + a;
+                            e: string = b :: a;
+                        } 
+                
+                    

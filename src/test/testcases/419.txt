@@ -1,0 +1,14 @@
+
+        x: integer;
+        main: function void() {
+            y: integer;
+            z: float;
+            for (y = 0, y < 10, y + 1){
+                for (x = 0, x < 10, x + 1){
+                    for (y = z, y < x, y + 1){
+                        printString("Chay duoc den day thi loi roi ");
+                    }
+                }
+            }
+        }
+        

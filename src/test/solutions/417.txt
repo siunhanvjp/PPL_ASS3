@@ -1,0 +1,1 @@
+Type mismatch in statement: ForStmt(AssignStmt(Id(x), FloatLit(0.1)), BinExpr(<, Id(x), IntegerLit(10)), BinExpr(+, Id(x), IntegerLit(1)), BlockStmt([CallStmt(printString, StringLit(Chay duoc dong nay thi loi roi cu))]))

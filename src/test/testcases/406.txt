@@ -1,0 +1,14 @@
+
+            main : function void() {
+                doNothing();
+            }
+            a: integer = 3;
+
+            main: function integer()    // error
+            {
+                a, Main:integer;
+                b, MAIN:float;
+                Main: integer;  
+                return 1;
+            }
+            

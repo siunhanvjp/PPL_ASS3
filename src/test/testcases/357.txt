@@ -1,0 +1,9 @@
+
+                    a:integer ;
+                    b: array[2] of integer;
+                    c: float = b[a];
+                
+                    main: function void(){
+                        
+                    }                
+                    

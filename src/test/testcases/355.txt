@@ -1,0 +1,5 @@
+
+                    a:integer ;
+                    b: array[2] of integer;
+                    c: float = a[0];
+                    

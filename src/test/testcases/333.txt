@@ -1,0 +1,9 @@
+
+            
+                    bar: function void (c: integer, c: integer) inherit foo1{
+                           super(a, c);
+                    }
+
+                    foo: function auto(inherit a: auto, a: float){}
+                
+                    

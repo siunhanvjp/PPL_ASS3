@@ -1,0 +1,8 @@
+
+            goo: function auto() {}
+            main: function void(){
+                a: integer = goo();
+                a = foo;
+            }
+            goo: integer = 5;
+        

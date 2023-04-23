@@ -1,0 +1,10 @@
+
+foo: function integer(a:float){}
+A: integer;  
+goo : function float(a: float){}
+
+A: function string(b: string, c: string){
+    // error
+    x : float = 0.5;
+    y : integer = foo(x);
+}

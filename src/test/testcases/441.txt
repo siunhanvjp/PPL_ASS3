@@ -1,0 +1,14 @@
+
+        foo: function float()
+        {
+            a: float = 5.5;
+            return a + 1;
+        }
+
+        main: function void()
+        {
+            a: float;
+            a = foo();
+            a = foo(1,2,3);
+        }
+        

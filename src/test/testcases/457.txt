@@ -1,0 +1,19 @@
+
+        a: boolean = true;
+        main: function integer()
+        {
+            return main_next(a);
+        }
+
+        main_next: function boolean(a: integer)
+        {
+            if (a > 3)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        

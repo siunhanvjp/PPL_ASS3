@@ -1,0 +1,14 @@
+
+                
+                foo: function void( a: string){
+                        foo = 12;
+                        a = "12";
+                        {
+                            foo: integer;
+                            {
+                                foo:float;
+                            }
+                        }
+                        return foo;
+                    }
+                    

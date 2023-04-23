@@ -1,1 +1,1 @@
-abc,<EOF>
+Type mismatch in expression: ArrayCell(a, [FuncCall(f1, [IntegerLit(1), IntegerLit(2), IntegerLit(3)])])

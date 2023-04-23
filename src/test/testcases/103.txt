@@ -1,1 +1,9 @@
-1_234.567
+
+            main: function void() {
+                a: auto = {f1(1,2,3), 2};
+                
+            }
+            f1: function auto(x: float, y: float, z: float) {
+                return x + y + z;
+            }
+        

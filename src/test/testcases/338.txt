@@ -1,0 +1,7 @@
+
+                    a: array [2,2,2] of integer;
+                    b: array[2,2] of float = a[0];
+                    c: array [2] of float = a[0,2];
+                    d: integer = a[12.2];
+                
+                    

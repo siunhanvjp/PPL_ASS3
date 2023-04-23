@@ -1,0 +1,19 @@
+
+        main: function void(){
+            ret: integer = 1;
+            ret = foo();
+            ret = foo1();
+        }
+
+        foo1: function integer() { 
+            a : integer = 3;
+            for(i = 0, i < 10, i + 1){
+                a = a + i;
+            }
+            return a;
+        }
+
+        foo: function float(){
+            return 1;
+        }
+        

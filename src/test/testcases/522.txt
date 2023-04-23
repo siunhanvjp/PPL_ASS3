@@ -1,0 +1,1 @@
+x: auto = !true&&!false||!(!true)&&"true";

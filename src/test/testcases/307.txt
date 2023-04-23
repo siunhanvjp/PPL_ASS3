@@ -1,0 +1,9 @@
+
+                
+                    main: function void (){
+                        a: integer;
+                        b: auto = a;
+                        c: auto;
+                    }
+                
+                    

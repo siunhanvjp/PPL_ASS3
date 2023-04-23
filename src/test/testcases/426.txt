@@ -1,0 +1,9 @@
+
+        main: function void(){
+            a: integer;
+            b : float;
+            a = b;
+            c = a;      // Can float be assigned integer?
+            a = c;
+        }
+        

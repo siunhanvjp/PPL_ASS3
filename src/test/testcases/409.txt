@@ -1,0 +1,10 @@
+
+
+main: function void(){
+
+        a:  integer;
+        a:  string;
+}
+main: function integer(){
+    return 13e-2;
+}

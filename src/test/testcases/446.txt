@@ -1,0 +1,27 @@
+
+        foo: function void()
+        {
+            a : integer = 3;
+            while(true)
+            {
+                if ( a * 7 - 42 > 1){
+                    break;
+                }
+                else{
+                    a = a * 2;
+                }
+            }
+        }
+
+        main: function void()
+        {
+            a: integer = 0;
+            for (a = 0, a < 10, a + 1)
+            {
+                if (a % 3 == 0){
+                    break;
+                }
+            }
+            break;
+        }
+        

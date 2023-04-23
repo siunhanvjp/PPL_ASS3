@@ -1,0 +1,8 @@
+
+                    b: array[2] of integer = {2,3};
+
+                    main: function void(){
+                        a: auto = b;
+                    }
+                
+                    

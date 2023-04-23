@@ -1,0 +1,30 @@
+
+        foo: function void()
+        {   
+            a: integer;
+            while(true)
+            {
+                if( 6* 7 -42 < 3){
+                    continue;
+                }
+                else{
+                    break;
+                }
+            }
+            for(a = 0, a < 3, a + 1)
+            {
+                if (a % 2 == 0)
+                {
+                    continue;
+                }
+            }
+        }
+
+        main: function integer(a: integer)
+        {
+            foo();
+            if (a > 3){
+                continue;           // error
+            }
+        }
+        

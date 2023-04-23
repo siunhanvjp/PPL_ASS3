@@ -1,0 +1,5 @@
+a: float = 2.3; //1
+            b: auto; //2
+            foo: function void(a: integer, b: float) {} //3
+            bar: function void() inherit foo {} //4
+            a: function void() {} //5

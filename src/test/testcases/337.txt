@@ -1,0 +1,5 @@
+
+                    a:float = (1+2)*4.5;
+                    d: array [2] of integer = {3,3,3,3};
+                
+                    

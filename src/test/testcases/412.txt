@@ -1,0 +1,5 @@
+
+        main: function void(){
+            x: integer;
+            x = foo(1, 2.2, x , y);
+        }

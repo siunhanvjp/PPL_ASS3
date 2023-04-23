@@ -1,3 +1,1 @@
-Program([
-	FuncDecl(main, VoidType, [], None, BlockStmt([CallStmt(printInteger, IntegerLit(4))]))
-])
+Type mismatch in Variable Declaration: VarDecl(a, FloatType, IntegerLit(1))

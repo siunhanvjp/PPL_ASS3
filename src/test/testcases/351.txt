@@ -1,0 +1,15 @@
+
+                    foo: function auto(a: auto, b:auto, z:auto){
+                            
+                            c: integer;
+                            d: float = c + a;
+                            e: string = b :: "abc";
+                            
+                            f: auto = true;
+                            g:string = foo(c,e,z) == f;
+                            z = foo(c,e,z);
+                            
+                        } 
+
+                
+                    

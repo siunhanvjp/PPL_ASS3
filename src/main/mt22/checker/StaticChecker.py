@@ -72,6 +72,9 @@ class StaticChecker(Visitor):
             #change return type
             decl = self.findFunc(name, scope)
             decl.return_type = typ
+            
+            if scope[-1][-1].name == name and type(scope[-1][-1]) is FuncDecl:
+                self.return_type = typ
 
     
         
@@ -92,7 +95,9 @@ class StaticChecker(Visitor):
     def findVar(self, name, param):
         for scope in param:
             for decl in scope:
+                print(str(decl))
                 if type(decl) is not FuncDecl and decl.name == name:
+                    print("oke")
                     return decl.typ
         return None
     
@@ -143,7 +148,7 @@ class StaticChecker(Visitor):
         self.hasEntry = False # if encounter void main func -> True
         
         self.return_type = None
-        
+        self.return_flag = []
         
  
     def check(self):
@@ -159,6 +164,7 @@ class StaticChecker(Visitor):
             raise NoEntryPoint()
         
         return []
+        
         
     
     # VarDecl: name: str, typ: Type, init: Expr or None = None
@@ -214,10 +220,9 @@ class StaticChecker(Visitor):
         
         for funcdecl in self.funcPro: #update if changed was made in funcPro
             if funcdecl.name == ctx.name:
-                ctx.return_typ = funcdecl.return_type
+                ctx.return_type = funcdecl.return_type
                 ctx.params = funcdecl.params
                 break
-        
         if ctx.inherit is not None:
             inherit_func = self.findFunc(ctx.inherit, param)
             if inherit_func is None:
@@ -233,7 +238,7 @@ class StaticChecker(Visitor):
         
         param.insert(0,env) #append para of func to scope
         
-        param[-1].append(FuncDecl(ctx.name, ctx.return_typ, ctx.params, ctx.inherit, BlockStmt([])))
+        param[-1].append(FuncDecl(ctx.name, ctx.return_type, ctx.params, ctx.inherit, BlockStmt([])))
 
         body_func = ctx.body.body #List[Stmt or VarDecl]
         len_body = len(ctx.body.body)
@@ -244,15 +249,6 @@ class StaticChecker(Visitor):
                 raise Undeclared(Function(), ctx.inherit)
             else:
                 inherit_para = [para for para in list(filter(lambda x: x.inherit, inherit_func.params))]
-
-                # #check if redecl inherit in paralist
-                # for decl in env:
-                #     if self.searchName(decl.name, inherit_para, ParamDecl):
-                #         raise Invalid(Parameter(), decl.name)
-                
-                # #append inherit param to local scope
-                # for param_decl in inherit_para:
-                #     param[0].append(param_decl)
                 
                 len_inherit = len(inherit_func.params)
                 
@@ -265,11 +261,13 @@ class StaticChecker(Visitor):
                             if body_func[0].name == "super":
                                 
                                 #check paramlist when call
+                                temp = []
                                 for decl in inherit_func.params:
-                                    temp = []
+                                    
                                     if self.searchName(decl.name, temp, ParamDecl):
-                                        temp.append(decl)
                                         raise Redeclared(Parameter(), decl.name)
+                                    else:
+                                        temp.append(decl)
                                 
                                 #check if redecl inherit in paralist
                                 for decl in env:
@@ -354,27 +352,23 @@ class StaticChecker(Visitor):
                     else:
                         returnType = VoidType()
                     
+                    if type(returnType) is VoidType and type(ctx.return_type) is not VoidType:
+                        raise TypeMismatchInStatement(stmt)
+                    if type(returnType) is not VoidType and type(ctx.return_type) is VoidType:
+                        raise TypeMismatchInStatement(stmt)
+                    
                     if type(returnType) is AutoType:
                         if type(ctx.return_type) is not AutoType:
                             self.inferTypeExp(stmt.expr, ctx.return_type, param)
                     else:
                         if type(ctx.return_type) is AutoType: 
                             ctx.return_type = returnType
-                            current_func = findFunc(ctx.name, param)
+                            current_func = self.findFunc(ctx.name, param)
                             current_func.return_type = returnType
                             self.return_type = returnType
                         else:
                             if not(self.compareNotAuto(ctx.return_type, returnType)):
                                 raise TypeMismatchInStatement(stmt)
-                            
-                            # if type(returnType) is not type(ctx.return_type):
-                            #     if type(ctx.return_type) is FloatType and type(returnType) is IntegerType:
-                            #         pass
-                            #     else:
-                            #         raise TypeMismatchInStatement(stmt)
-                            # elif type(returnType) is ArrayType:
-                            #     if returnType.dimensions != ctx.return_type.dimensions or type(returnType.typ) is not type(ctx.return_type.typ):
-                            #         raise TypeMismatchInStatement(stmt)
                 else:
                     continue
             else:
@@ -404,7 +398,7 @@ class StaticChecker(Visitor):
         
         if op in ["+", "-", "*", "/"]:
             operandType = [AutoType, IntegerType, FloatType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -422,7 +416,7 @@ class StaticChecker(Visitor):
                 pass
         elif op in  ["%"]:
             operandType = [AutoType, IntegerType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -437,7 +431,7 @@ class StaticChecker(Visitor):
                 pass
         elif op in ["&&", "||"]:
             operandType = [AutoType, BooleanType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -454,7 +448,7 @@ class StaticChecker(Visitor):
                 return BooleanType() 
         elif op in ["::"]:
             operandType = [AutoType, StringType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -471,7 +465,7 @@ class StaticChecker(Visitor):
                 return StringType() 
         elif op in ["==", "!="]:
             operandType = [AutoType, BooleanType, IntegerType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -486,7 +480,7 @@ class StaticChecker(Visitor):
                 pass
         elif op in ["<", "<=", ">", ">="]:
             operandType = [AutoType, FloatType, IntegerType]
-            if type(leftType) not in operandType and type(rightType) not in operandType:
+            if type(leftType) not in operandType or type(rightType) not in operandType:
                 raise TypeMismatchInExpression(ctx)
             operandType.pop(0)
             if type(leftType) is not AutoType and type(rightType) is not AutoType:
@@ -531,6 +525,7 @@ class StaticChecker(Visitor):
             raise Undeclared(Identifier(), ctx.name)
         else:
             return res
+        
     # name: str, cell: List[Expr]
     def visitArrayCell(self, ctx, param):
         #check name
@@ -590,7 +585,7 @@ class StaticChecker(Visitor):
             exp_typ = self.visit(exp, param)
             if type(exp_typ) is not AutoType:
                 mutual_typ = exp_typ
-                typs.append(exp_typ)
+            typs.append(exp_typ)
         
         if mutual_typ is None:
             pass # cai nay la toan bo phan tu trong array deu la Auto
@@ -740,16 +735,30 @@ class StaticChecker(Visitor):
         elif type(condType) is not BooleanType:
             raise TypeMismatchInStatement(ctx)
         
-        self.visit(ctx.tstmt, param)
+        if ctx.tstmt is not None :
+            if type(ctx.tstmt) is ReturnStmt:
+                self.return_flag.insert(0, False)
+                self.visit(ctx.tstmt, param)
+                self.return_flag.pop(0)
+            else:    
+                self.visit(ctx.tstmt, param)
         
-        if ctx.fstmt is not None : 
-            self.visit(ctx.fstmt, param)
+        if ctx.fstmt is not None :
+            if type(ctx.fstmt) is ReturnStmt:
+                self.return_flag.insert(0, False)
+                self.visit(ctx.fstmt, param)
+                self.return_flag.pop(0)
+            else:     
+                self.visit(ctx.fstmt, param)
     # init: AssignStmt, cond: Expr, upd: Expr, stmt: Stmt
     def visitForStmt(self, ctx, param):
+        
+        initLhsType = self.visit(ctx.init.lhs, param)
         initRhsType = self.visit(ctx.init.rhs, param)
-        initLhsType = self.visit(ctx.init.rhs, param)
+        
         if type(initRhsType) is not IntegerType:
             raise TypeMismatchInStatement(ctx)
+        
         if type(initLhsType) is AutoType:
             self.inferTypeExp(ctx.init.lhs, IntegerType, param)
         elif type(initLhsType) is not IntegerType:
@@ -769,7 +778,13 @@ class StaticChecker(Visitor):
         
         self.loopDepth += 1
         
-        self.visit(ctx.stmt, param)
+        if ctx.stmt is not None :
+            if type(ctx.stmt) is ReturnStmt:
+                self.return_flag.insert(0, False)
+                self.visit(ctx.stmt, param)
+                self.return_flag.pop(0)
+            else:    
+                self.visit(ctx.stmt, param)
         
         self.loopDepth -= 1
         
@@ -782,8 +797,13 @@ class StaticChecker(Visitor):
             raise TypeMismatchInStatement(ctx)
         
         self.loopDepth += 1
-        
-        self.visit(ctx.stmt, param)
+        if ctx.stmt is not None :
+            if type(ctx.stmt) is ReturnStmt:
+                self.return_flag.insert(0, False)
+                self.visit(ctx.stmt, param)
+                self.return_flag.pop(0)
+            else:    
+                self.visit(ctx.stmt, param)
         
         self.loopDepth -= 1
         
@@ -796,8 +816,14 @@ class StaticChecker(Visitor):
         
         self.loopDepth += 1
         
-        self.visit(ctx.stmt, param)
         
+        if ctx.stmt is not None :
+            if type(ctx.stmt) is ReturnStmt:
+                self.return_flag.insert(0, False)
+                self.visit(ctx.stmt, param)
+                self.return_flag.pop(0)
+            else:    
+                self.visit(ctx.stmt, param)
         self.loopDepth -= 1
         
     def visitBreakStmt(self, ctx, param):
@@ -809,6 +835,10 @@ class StaticChecker(Visitor):
             raise MustInLoop(ctx)
     # expr: Expr or None = None
     def visitReturnStmt(self, ctx, param):
+        
+        if self.return_flag[0]:
+            return
+        
         funcType = self.return_type
         if ctx.expr is not None:
             returnType = self.visit(ctx.expr, param)
@@ -817,25 +847,27 @@ class StaticChecker(Visitor):
             
         if type(returnType) is AutoType:
             if type(funcType) is not AutoType:
-                self.inferTypeExp(stmt.expr, funcType, param)
+                self.inferTypeExp(ctx.expr, funcType, param)
         else:
             if type(funcType) is AutoType: 
                 self.return_type = returnType
-                current_func = findFunc(param[-1][-1].name, param)
+                current_func = self.findFunc(param[-1][-1].name, param)
                 current_func.return_type = returnType
                 self.return_type = returnType
             else:
                 if not(self.compareNotAuto(funcType, returnType)):
                     raise TypeMismatchInStatement(ctx)
-                
+        self.return_flag[0] = True    
     def visitBlockStmt(self, ctx, param):
         env = [] 
         
         param.insert(0,env)
         
+        self.return_flag.insert(0, False)
+        
         for stmt in ctx.body:
             self.visit(stmt, param)
-            
+        self.return_flag.pop(0)
         param.pop(0)
         
         

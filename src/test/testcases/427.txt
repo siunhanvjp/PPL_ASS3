@@ -1,0 +1,11 @@
+
+        main: function void()
+        {
+            a, b: integer;
+            c: float;
+            str: string;
+            a = b;
+            c = a;
+            str = b;
+        }
+        

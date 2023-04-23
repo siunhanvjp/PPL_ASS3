@@ -1,0 +1,14 @@
+
+            
+                    
+                    
+                    bar: function void(a: integer) inherit foo{
+                        preventDefault();
+                        return ;
+                    }
+                    
+                    foo: function integer ( inherit a: float, a: float){
+                        
+                    }
+                
+                    

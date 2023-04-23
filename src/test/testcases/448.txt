@@ -1,0 +1,23 @@
+
+        foo: function void()
+        {
+            a: integer = 0;
+            while(true){
+                a = a + 1;
+                if(a < 10){
+                    break;
+                }
+                continue;
+            }
+
+            for (a = 0, a < 10, a + 1){
+                break;
+            }
+        }
+
+        main: function void()
+        {
+            foo();
+            continue;
+        }
+        

@@ -1,0 +1,1 @@
+goo: function void(a: auto, a: auto) inherit foo{}

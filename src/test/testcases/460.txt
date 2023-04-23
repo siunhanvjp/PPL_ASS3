@@ -1,0 +1,6 @@
+
+            foo: integer = 5;
+            main: function void(){
+                a: integer = foo();
+            }
+        

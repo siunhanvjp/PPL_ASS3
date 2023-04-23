@@ -1,0 +1,11 @@
+
+
+            
+                    foo: function auto(inherit a: auto, b: float){}
+                    
+                    bar: function void(c: integer, b: integer) inherit foo {
+                        super("abc",foo(1,2));
+                        c: string = a;
+                    }
+                
+                    

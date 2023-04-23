@@ -1,1 +1,1 @@
-1234567,<EOF>
+Type mismatch in statement: ReturnStmt(BinExpr(+, BinExpr(+, Id(x), Id(y)), Id(z)))

@@ -1,0 +1,10 @@
+
+        main: function integer() {
+            x: integer = 0;
+            for (x = 1, x < 10, x + 1){
+                for(x = x + 1, x < 10.5, x + 1){
+                    printString("Cai nay phai ra loi la do float");
+                }
+            }
+        }
+        

@@ -1,0 +1,1 @@
+Type mismatch in statement: IfStmt(Id(x), BlockStmt([CallStmt(printString, StringLit(Parser m sai roi hehe))]))

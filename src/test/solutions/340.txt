@@ -1,0 +1,1 @@
+Illegal array literal: ArrayLit([ArrayCell(a, [IntegerLit(0)]), ArrayCell(a, [IntegerLit(1)])])

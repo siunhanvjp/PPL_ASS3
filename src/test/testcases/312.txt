@@ -1,0 +1,6 @@
+
+                    foo: integer;
+                    foo: function void(a: integer, b: string){
+                                return ;
+                            }
+                    

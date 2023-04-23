@@ -1,0 +1,11 @@
+
+                    main: function void(){
+                        a:integer;
+                            for(a = 1, true, 1){
+                                break;
+                                continue;
+                            }
+                            break;
+                        }
+                
+                    

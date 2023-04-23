@@ -1,0 +1,6 @@
+
+                    foo: function auto ( a: integer , b: integer ) {}
+                    a: integer = foo(1,2) ;
+                    b: float = foo(1,2) + 1;
+                
+                    

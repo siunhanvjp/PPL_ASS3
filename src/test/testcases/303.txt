@@ -1,2 +1,7 @@
-main: function void () {
-        }
+
+                    a: array[2,2,2] of integer;
+                    b: array[2] of integer = a[0,2];
+                    main:function void(){
+                    
+                    }
+                    

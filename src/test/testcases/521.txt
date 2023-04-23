@@ -1,0 +1,4 @@
+foo: function void(){
+                while(true) { x = 5; }
+                x: integer;
+            }

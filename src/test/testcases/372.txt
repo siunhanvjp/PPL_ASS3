@@ -1,0 +1,10 @@
+
+                         main: function void(){
+                            a:integer;
+                            c:string;
+                            do {
+                                break;
+                            } while(a < 10);
+                        }
+                
+                    

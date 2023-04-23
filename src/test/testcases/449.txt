@@ -1,0 +1,10 @@
+
+        main: function void()
+        {
+            foo();
+            continue;
+        }
+        foo: function integer(){
+            return 1;
+        }
+        

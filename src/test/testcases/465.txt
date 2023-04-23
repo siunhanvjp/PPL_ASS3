@@ -1,0 +1,6 @@
+
+            foo: function auto() {}
+            main: function void(){
+                a: integer = foo;
+            }
+        

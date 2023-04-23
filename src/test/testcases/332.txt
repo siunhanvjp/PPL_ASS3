@@ -1,0 +1,10 @@
+
+                    a: integer = 5;
+            
+                    bar: function void(c: integer, b: integer) inherit a{
+                           super(a, c);
+                    }
+
+                    foo: function auto(inherit a: auto, a: float){}
+                
+                    

@@ -1,0 +1,13 @@
+
+        a: boolean = true;
+
+        foo: function boolean(a: integer)
+        {
+            return foo(a + 1);
+        }
+
+        foo2: function boolean(b: integer)
+        {
+            return b + 1;
+        }
+        

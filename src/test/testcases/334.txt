@@ -1,0 +1,8 @@
+
+                    bar: function void (c: integer, c: integer) inherit foo1{
+                           preventDefault();
+                    }
+
+                    foo: function auto(inherit a: auto, a: float){}
+                
+                    

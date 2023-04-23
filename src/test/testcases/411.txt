@@ -1,0 +1,13 @@
+
+asd:integer;
+foo: function integer(x: integer){
+    return x;
+}    
+
+asd: integer;
+main: function void(x: integer){
+    y : float = 3.5;
+    x = foo();
+    y = x + foo - 1;
+}
+

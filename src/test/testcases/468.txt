@@ -1,0 +1,9 @@
+
+            main: function void() {
+                a: auto = {goo(1,2,3), 2};
+                x: string = true;
+            }
+            goo: function auto(x: float, y: float, z: float) {
+                return x + y + z;
+            }
+        

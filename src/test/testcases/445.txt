@@ -1,0 +1,20 @@
+
+        foo: function void()
+        {
+            a: integer;
+            while(true){
+                a: boolean;
+                break;
+            }
+
+            for ( a = 0, a < 10, a + 2){
+                break;
+            }
+        }
+
+        main: function void()
+        {
+            foo();
+            break;
+        }
+        

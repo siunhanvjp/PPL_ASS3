@@ -1,1 +1,10 @@
- "He asked me: \"Where is John?\"" 
+
+            main: function void() {
+                a: integer;
+                a = f1(1,2,3);
+                x: string = true;
+            }
+            f1: function auto(x: float, y: float, z: float) {
+                return x + y + z;
+            }
+        

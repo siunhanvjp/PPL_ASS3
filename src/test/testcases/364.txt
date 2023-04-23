@@ -1,0 +1,13 @@
+
+                        main: function void(){
+                            a:integer;
+                            c:string;
+                                for(a = a, a < 5, true){
+                                    break;
+                                    a:boolean;
+                                    b:boolean = a == 4;
+                                    c = "abc";
+                                }
+                            }
+                
+                    

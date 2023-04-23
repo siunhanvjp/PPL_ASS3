@@ -1,0 +1,10 @@
+
+        main: function void(){
+            for (i = 0, i < 10, i + 1){
+                doNothing();
+                count = 1;
+                count = count + 1;
+            }
+        }
+        arrFloat: array[3] of float;
+        arrFloat: float;  // error

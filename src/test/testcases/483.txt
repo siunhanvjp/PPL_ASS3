@@ -1,0 +1,5 @@
+goo: function integer(){}
+            main: function void(){
+                n: integer;
+                n = goo() + 1;
+            }

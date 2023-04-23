@@ -1,0 +1,6 @@
+
+            no_main: function void() {
+                x: auto = x + x;
+                x = 12;
+            }
+        

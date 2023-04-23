@@ -1,0 +1,11 @@
+
+        proc: function void (a: integer, b: integer)
+        {
+            printInteger(a + b);
+        }
+
+        main: function void(){
+            proc(1,0);
+            proc(1);
+        }
+        

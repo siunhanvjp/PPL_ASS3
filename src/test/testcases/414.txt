@@ -1,0 +1,6 @@
+
+main: function void() {
+    y: integer = 3;
+    y = y / 3;
+    x = x + y;
+}

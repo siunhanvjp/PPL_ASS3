@@ -1,0 +1,9 @@
+
+        func1: function void(){
+            doNothing();
+        }
+        main: function void() {
+            func1();
+            return 0; // error
+        }
+        
