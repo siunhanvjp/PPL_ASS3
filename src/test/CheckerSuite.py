@@ -9,18 +9,10 @@ class CheckerSuite(unittest.TestCase):
     def test_short_vardecl(self):
         input = """
             
-
-main : function void() inherit foo{
-                super(1.0, 2.0, 3.0);
-                z: integer = foo(1,2,3) + 1;
-                x = "abc";
-                y = true;
-            }
-            foo : function auto(inherit x : auto, inherit y : auto, z : auto){
-                x = true;
-                return "1";
-            }
-        
+x: function void() {}
+    main: function void() inherit x {
+        super(); //?
+    }
             """
         expect = "[]"
         self.assertTrue(TestChecker.test(input, expect, 300))

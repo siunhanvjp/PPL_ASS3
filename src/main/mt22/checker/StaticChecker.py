@@ -10,13 +10,20 @@ class StaticChecker(Visitor):
     def compareNotAuto(self, typ1, typ2):
         if type(typ1) is not type(typ2):
             if not(type(typ1) is FloatType and type(typ2) is IntegerType):
+                
                 return False
         elif type(typ1) is ArrayType:
             if typ1.dimensions == typ2.dimensions and type(typ1.typ) is FloatType and type(typ2.typ) is IntegerType:
+                
                 return True 
+            
             if typ1.dimensions != typ2.dimensions or type(typ1.typ) is not type(typ2.typ):
+                
                 return False
+            
+            return True
         else:
+            
             return True
     
     # def searchName(self, name, scope, typ): #return true if name in the given scope, false if otherwise
@@ -169,9 +176,11 @@ class StaticChecker(Visitor):
             
             if ctx.init is not None: #has init so check type
                 initType = self.visit(ctx.init, param)
+                
                 if type(initType) is not AutoType:
                     
                     if not(self.compareNotAuto(ctx.typ, initType)):
+                        
                         raise TypeMismatchInVarDecl(ctx) 
                     
                     
@@ -209,6 +218,11 @@ class StaticChecker(Visitor):
                 ctx.params = funcdecl.params
                 break
         
+        if ctx.inherit is not None:
+            inherit_func = self.findFunc(ctx.inherit, param)
+            if inherit_func is None:
+                raise Undeclared(Function(), ctx.inherit)
+        
         env = []
         
         for decl in ctx.params:
@@ -229,23 +243,16 @@ class StaticChecker(Visitor):
             if inherit_func is None:
                 raise Undeclared(Function(), ctx.inherit)
             else:
-                #check paramlist when call
-                for decl in inherit_func.params:
-                    temp = []
-                    if self.searchName(decl.name, temp, ParamDecl):
-                        temp.append(decl)
-                        raise Redeclared(Parameter(), decl.name)
-
                 inherit_para = [para for para in list(filter(lambda x: x.inherit, inherit_func.params))]
 
-                #check if redecl inherit in paralist
-                for decl in env:
-                    if self.searchName(decl.name, inherit_para, ParamDecl):
-                        raise Invalid(Parameter(), decl.name)
+                # #check if redecl inherit in paralist
+                # for decl in env:
+                #     if self.searchName(decl.name, inherit_para, ParamDecl):
+                #         raise Invalid(Parameter(), decl.name)
                 
-                #append inherit param to local scope
-                for param_decl in inherit_para:
-                    param[0].append(param_decl)
+                # #append inherit param to local scope
+                # for param_decl in inherit_para:
+                #     param[0].append(param_decl)
                 
                 len_inherit = len(inherit_func.params)
                 
@@ -256,6 +263,23 @@ class StaticChecker(Visitor):
                     if(len_body > 0):
                         if type(body_func[0]) is CallStmt and body_func[0].name in ["super", "preventDefault"]: 
                             if body_func[0].name == "super":
+                                
+                                #check paramlist when call
+                                for decl in inherit_func.params:
+                                    temp = []
+                                    if self.searchName(decl.name, temp, ParamDecl):
+                                        temp.append(decl)
+                                        raise Redeclared(Parameter(), decl.name)
+                                
+                                #check if redecl inherit in paralist
+                                for decl in env:
+                                    if self.searchName(decl.name, inherit_para, ParamDecl):
+                                        raise Invalid(Parameter(), decl.name)
+                                
+                                #append inherit param to local scope
+                                for param_decl in inherit_para:
+                                    param[0].append(param_decl)
+                                
                                 super_args = body_func[0].args
                                 if len(super_args) > len_inherit:
                                     raise TypeMismatchInExpression(super_args[len_inherit])
@@ -377,7 +401,7 @@ class StaticChecker(Visitor):
         op = ctx.op
         leftType = self.visit(ctx.left, param)
         rightType = self.visit(ctx.right, param)
-        print(type(leftType))
+        
         if op in ["+", "-", "*", "/"]:
             operandType = [AutoType, IntegerType, FloatType]
             if type(leftType) not in operandType and type(rightType) not in operandType:
@@ -516,22 +540,24 @@ class StaticChecker(Visitor):
         
         if type(arr_type) is not ArrayType:
             #raise loi cc gi o day :D??
-            raise TypeMismatchInExpression(ctx.name)
+            raise TypeMismatchInExpression(ctx)
         
         dimen = arr_type.dimensions 
+       
         if len(ctx.cell) > len(dimen):
-            raise TypeMismatchInExpression(ctx.cell)
+            raise TypeMismatchInExpression(ctx)
         
         for expr in ctx.cell:
             expr_typ = self.visit(expr, param)
             # co ra auto duoc ko :D??
             if type(expr_typ) is not IntegerType:
-                raise TypeMismatchInExpression(expr)
+                raise TypeMismatchInExpression(ctx)
             
         if len(dimen) == len(ctx.cell):
             return arr_type.typ
         else:
-            dimen.pop(0)
+            for i in range(len(ctx.cell)):
+                dimen.pop(0)
             return ArrayType(dimen, arr_type.typ)
             
         
